@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>binomial_cis &mdash; binomial_cis 0.0.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=0c446633"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            binomial_cis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="_include/background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/notebooks.html">Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/potential_pitfalls.html">Potential Pitfalls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/community_guidelines.html">Community Guidelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">binomial_cis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">binomial_cis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="binomial-cis">
+<h1>binomial_cis<a class="headerlink" href="#binomial-cis" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="binomial_cis.html">binomial_cis package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="binomial_cis.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binomial_cis.html#module-binomial_cis.binomial_helper">binomial_cis.binomial_helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binomial_cis.html#module-binomial_cis.conf_intervals">binomial_cis.conf_intervals module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.UMAU_lb"><code class="docutils literal notranslate"><span class="pre">UMAU_lb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.UMAU_ub"><code class="docutils literal notranslate"><span class="pre">UMAU_ub()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.binom_bisection"><code class="docutils literal notranslate"><span class="pre">binom_bisection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.binom_ci"><code class="docutils literal notranslate"><span class="pre">binom_ci()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.bisection"><code class="docutils literal notranslate"><span class="pre">bisection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.get_UMPU_accept_region"><code class="docutils literal notranslate"><span class="pre">get_UMPU_accept_region()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.get_feasible_p"><code class="docutils literal notranslate"><span class="pre">get_feasible_p()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.get_lb"><code class="docutils literal notranslate"><span class="pre">get_lb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.get_lb_ub"><code class="docutils literal notranslate"><span class="pre">get_lb_ub()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.get_ps_cp"><code class="docutils literal notranslate"><span class="pre">get_ps_cp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.in_UMPU_accept_region"><code class="docutils literal notranslate"><span class="pre">in_UMPU_accept_region()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.max_accept_prob_2_sided"><code class="docutils literal notranslate"><span class="pre">max_accept_prob_2_sided()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.conf_intervals.test_stat"><code class="docutils literal notranslate"><span class="pre">test_stat()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="binomial_cis.html#module-binomial_cis.mixed_monotonic">binomial_cis.mixed_monotonic module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.mixed_monotonic.Interval"><code class="docutils literal notranslate"><span class="pre">Interval</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="binomial_cis.html#binomial_cis.mixed_monotonic.Interval.get_feasible"><code class="docutils literal notranslate"><span class="pre">Interval.get_feasible()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binomial_cis.html#binomial_cis.mixed_monotonic.Interval.get_midpoint"><code class="docutils literal notranslate"><span class="pre">Interval.get_midpoint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binomial_cis.html#binomial_cis.mixed_monotonic.Interval.get_ub"><code class="docutils literal notranslate"><span class="pre">Interval.get_ub()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binomial_cis.html#binomial_cis.mixed_monotonic.Interval.split"><code class="docutils literal notranslate"><span class="pre">Interval.split()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="binomial_cis.html#binomial_cis.mixed_monotonic.Interval.volume"><code class="docutils literal notranslate"><span class="pre">Interval.volume()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.mixed_monotonic.mmp_solve"><code class="docutils literal notranslate"><span class="pre">mmp_solve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="binomial_cis.html#module-binomial_cis.plotting">binomial_cis.plotting module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.plotting.plot_expected_shortage_mixed_monotonic"><code class="docutils literal notranslate"><span class="pre">plot_expected_shortage_mixed_monotonic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.plotting.plot_expected_width_mixed_monotonic"><code class="docutils literal notranslate"><span class="pre">plot_expected_width_mixed_monotonic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.plotting.plot_shortage_curve"><code class="docutils literal notranslate"><span class="pre">plot_shortage_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.plotting.plot_width_curve"><code class="docutils literal notranslate"><span class="pre">plot_width_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="binomial_cis.html#module-binomial_cis.volume">binomial_cis.volume module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.expected_excess"><code class="docutils literal notranslate"><span class="pre">expected_excess()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.expected_shortage"><code class="docutils literal notranslate"><span class="pre">expected_shortage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.expected_shortage_cp"><code class="docutils literal notranslate"><span class="pre">expected_shortage_cp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.expected_shortage_mixed_monotonic"><code class="docutils literal notranslate"><span class="pre">expected_shortage_mixed_monotonic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.expected_shortage_mixed_monotonic_cp"><code class="docutils literal notranslate"><span class="pre">expected_shortage_mixed_monotonic_cp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.expected_width"><code class="docutils literal notranslate"><span class="pre">expected_width()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.expected_width_mixed_monotonic"><code class="docutils literal notranslate"><span class="pre">expected_width_mixed_monotonic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.max_expected_excess"><code class="docutils literal notranslate"><span class="pre">max_expected_excess()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.max_expected_shortage"><code class="docutils literal notranslate"><span class="pre">max_expected_shortage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="binomial_cis.html#binomial_cis.volume.max_expected_width"><code class="docutils literal notranslate"><span class="pre">max_expected_width()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="binomial_cis.html#module-binomial_cis">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">setup module</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Joe Vincent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

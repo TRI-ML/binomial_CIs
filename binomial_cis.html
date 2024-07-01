@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>binomial_cis package &mdash; binomial_cis 0.0.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=0c446633"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            binomial_cis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="_include/background.html">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/notebooks.html">Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/potential_pitfalls.html">Potential Pitfalls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_include/community_guidelines.html">Community Guidelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">binomial_cis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">binomial_cis package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/binomial_cis.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="binomial-cis-package">
+<h1>binomial_cis package<a class="headerlink" href="#binomial-cis-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-binomial_cis.binomial_helper">
+<span id="binomial-cis-binomial-helper-module"></span><h2>binomial_cis.binomial_helper module<a class="headerlink" href="#module-binomial_cis.binomial_helper" title="Link to this heading"></a></h2>
+</section>
+<section id="module-binomial_cis.conf_intervals">
+<span id="binomial-cis-conf-intervals-module"></span><h2>binomial_cis.conf_intervals module<a class="headerlink" href="#module-binomial_cis.conf_intervals" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.UMAU_lb">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">UMAU_lb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.UMAU_lb" title="Link to this definition"></a></dt>
+<dd><p>Computes the lower bound for a 2-sided UMAU CI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t_o</strong> (<em>float</em>) – Observed test statistic (number of successes + uniform random number).</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>p_lb</strong> – Lower bound of UMAU confidence interval for p</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.UMAU_ub">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">UMAU_ub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.UMAU_ub" title="Link to this definition"></a></dt>
+<dd><p>Computes the upper bound for a 2-sided UMAU CI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t_o</strong> (<em>float</em>) – Observed test statistic (number of successes + uniform random number).</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>p_ub</strong> – Upper bound of UMAU confidence interval for p</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.binom_bisection">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">binom_bisection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.binom_bisection" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+k: number of successes
+n: number of samples
+alpha: miscoverage rate, P(<a href="#id1"><span class="problematic" id="id2">p_</span></a> &lt;= p) &gt;= 1-alpha</p>
+<p>Returns
+p: smallest p such that binom_cdf(k,n,p) &gt;= 1-alpha</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.binom_ci">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">binom_ci</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.binom_ci" title="Link to this definition"></a></dt>
+<dd><p>Compute a binomial confidence interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>k</strong> (<em>int</em>) – Number of observed successes in <cite>n</cite> trials.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>side</strong> (<em>{'lb'</em><em>, </em><em>'ub'</em><em>, </em><em>'lb</em><em>,</em><em>ub'}</em>) – Selection of lower, upper, or 2-sided bounds.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether to print intermediate updates.</p></li>
+<li><p><strong>randomized</strong> (<em>bool</em><em>, </em><em>default True</em>) – If True solves for the UMA bounds, if False then solves for (less efficient) non-randomized bounds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>CI</strong> – Either a lower bound, upper bound, or simultaneous lower &amp; upper bounds (returned as a tuple)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.bisection">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">bisection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">CDF</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.bisection" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+CDF: a function mapping from p -&gt; F(t | p)
+alpha: miscoverage rate, P(<a href="#id3"><span class="problematic" id="id4">p_</span></a> &lt;= p) &gt;= 1-alpha
+tol: upper bound on how far below the returned value of p is to the true solution</p>
+<p>Returns
+<a href="#id5"><span class="problematic" id="id6">p_</span></a>: a lower bound on p such that P(<a href="#id7"><span class="problematic" id="id8">p_</span></a> &lt;= p) &gt;= 1-alpha</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.get_UMPU_accept_region">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">get_UMPU_accept_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.get_UMPU_accept_region" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+p_o: null hypothesis prob of success
+n: number of trials
+alpha: miscoverage (Type 1 error) rate, P(accept | p = p_o) &gt;= 1-alpha</p>
+<p>Returns
+t_lo, t_up: UMAU acceptance region for the test statistic</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.get_feasible_p">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">get_feasible_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.get_feasible_p" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+t_o: observed test statistic
+n: number of trials
+alpha: miscoverage rate</p>
+<p>Returns
+p_o: a value of p in the UMAU interval</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.get_lb">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">get_lb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_successes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.get_lb" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+num_successes: number of observed successes in n trials
+n: number of trials
+alpha: miscoverage rate, P(<a href="#id9"><span class="problematic" id="id10">p_</span></a> &lt;= p) &gt;= 1-alpha</p>
+<p>Returns
+<a href="#id11"><span class="problematic" id="id12">p_</span></a>: a lower bound on p such that P(<a href="#id13"><span class="problematic" id="id14">p_</span></a> &lt;= p) &gt;= 1-alpha</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.get_lb_ub">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">get_lb_ub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_successes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.get_lb_ub" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+num_successes: number of observed successes in n trials
+n: number of trials
+alpha: miscoverage rate, P(p_lb &lt;= p &lt;= p_ub) &gt;= 1-alpha</p>
+<p>Returns
+p_lb, p_ub: A UMAU confidence interval for p</p>
+<p>We know that the bounds of the test statistic acceptance region
+are monotonically increasing in p (see Lehmann textbook).
+Strategy: bisection search to find bounds on p</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.get_ps_cp">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">get_ps_cp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.get_ps_cp" title="Link to this definition"></a></dt>
+<dd><p>Compute all possible Clopper-Pearson lower bounds given <cite>n</cite> trials.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> (<em>float</em>) – True success probability.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ps</strong> – Array of possible Clopper-Pearson lower bounds that are cutoff points in the expected shortage integral.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.in_UMPU_accept_region">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">in_UMPU_accept_region</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_o</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.in_UMPU_accept_region" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+t_o: observed test statistic
+p_o: null hypothesis prob of success
+n: number of trials
+alpha: miscoverage (Type 1 error) rate, P(accept | p = p_o) &gt;= 1-alpha</p>
+<p>Returns
+boolean for whether t_o is in the UMAU acceptance region for the test statistic</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.max_accept_prob_2_sided">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">max_accept_prob_2_sided</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_grid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.max_accept_prob_2_sided" title="Link to this definition"></a></dt>
+<dd><p>Grid search to find the parameter which has the highest probability of being in the 2-sided CI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – True probability of success.</p></li>
+<li><p><strong>n_grid</strong> (<em>int</em>) – Size of discrete grid to search over.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>max_ap</strong> (<em>float</em>) – Maximum acceptance probability.</p></li>
+<li><p><strong>max_p_0</strong> (<em>float</em>) – Parameter that attains the maximum acceptance probability.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.conf_intervals.test_stat">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.conf_intervals.</span></span><span class="sig-name descname"><span class="pre">test_stat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_successes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.conf_intervals.test_stat" title="Link to this definition"></a></dt>
+<dd><p>Inputs
+num_successes: number of observed successes in n trials</p>
+<p>Returns
+T: number of successes + uniform random variable</p>
+</dd></dl>
+
+</section>
+<section id="module-binomial_cis.mixed_monotonic">
+<span id="binomial-cis-mixed-monotonic-module"></span><h2>binomial_cis.mixed_monotonic module<a class="headerlink" href="#module-binomial_cis.mixed_monotonic" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="binomial_cis.mixed_monotonic.Interval">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">binomial_cis.mixed_monotonic.</span></span><span class="sig-name descname"><span class="pre">Interval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.mixed_monotonic.Interval" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for storing and performing common operations on intervals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_min</strong> (<em>float</em>) – Lower bound of interval</p></li>
+<li><p><strong>x_max</strong> (<em>float</em>) – Upper bound of interval</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="binomial_cis.mixed_monotonic.Interval.get_feasible">
+<span class="sig-name descname"><span class="pre">get_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.mixed_monotonic.Interval.get_feasible" title="Link to this definition"></a></dt>
+<dd><p>Finds a feasible point in the interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>F</strong> (<em>function</em>) – Mixed monotonic function (increasing in first arg, decreasing in second arg)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>x_feas</strong> (<em>float</em>) – Midpoint of interval</p></li>
+<li><p><strong>x_feas_val</strong> (<em>float</em>) – Value of midpoint on the function <cite>F</cite></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binomial_cis.mixed_monotonic.Interval.get_midpoint">
+<span class="sig-name descname"><span class="pre">get_midpoint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.mixed_monotonic.Interval.get_midpoint" title="Link to this definition"></a></dt>
+<dd><p>Computes the midpoint of the interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Midpoint of interval</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binomial_cis.mixed_monotonic.Interval.get_ub">
+<span class="sig-name descname"><span class="pre">get_ub</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.mixed_monotonic.Interval.get_ub" title="Link to this definition"></a></dt>
+<dd><p>Computes a certified upper bound of the function <cite>F</cite> over the interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>F</strong> (<em>function</em>) – Mixed monotonic function (increasing in first arg, decreasing in second arg)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ub</strong> – Certified upper bound of max(F) over Interval</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binomial_cis.mixed_monotonic.Interval.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.mixed_monotonic.Interval.split" title="Link to this definition"></a></dt>
+<dd><p>Split along longest axis, else split along first axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>I1, I2</strong> – Intervals resulting from splitting the orignal in half.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#binomial_cis.mixed_monotonic.Interval" title="binomial_cis.mixed_monotonic.Interval">Interval</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binomial_cis.mixed_monotonic.Interval.volume">
+<span class="sig-name descname"><span class="pre">volume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.mixed_monotonic.Interval.volume" title="Link to this definition"></a></dt>
+<dd><p>Computes the width of the interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Width of interval</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.mixed_monotonic.mmp_solve">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.mixed_monotonic.</span></span><span class="sig-name descname"><span class="pre">mmp_solve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">F</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">I</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.mixed_monotonic.mmp_solve" title="Link to this definition"></a></dt>
+<dd><p>Uses mixed-monotonic programming to solve for a certified maximum of the function F over the interval I.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>F</strong> (<em>function</em>) – Mixed monotonic function (increasing in first arg, decreasing in second arg)</p></li>
+<li><p><strong>I</strong> (<a class="reference internal" href="#binomial_cis.mixed_monotonic.Interval" title="binomial_cis.mixed_monotonic.Interval"><em>Interval</em></a>) – Domain to maximize over.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ub</strong> (<em>float</em>) – Certified upper bound of max <cite>F</cite> over <cite>I</cite> within <cite>tol</cite> of global max.</p></li>
+<li><p><strong>lb</strong> (<em>float</em>) – Certified lower bound of max <cite>F</cite> over <cite>I</cite> within <cite>tol</cite> of global max.</p></li>
+<li><p><strong>x_lb</strong> (<em>float</em>) – Input that achieves <cite>lb</cite>.</p></li>
+<li><p><strong>num_iters</strong> (<em>int</em>) – Number of iterations taken for the solve.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-binomial_cis.plotting">
+<span id="binomial-cis-plotting-module"></span><h2>binomial_cis.plotting module<a class="headerlink" href="#module-binomial_cis.plotting" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.plotting.plot_expected_shortage_mixed_monotonic">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_expected_shortage_mixed_monotonic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.plotting.plot_expected_shortage_mixed_monotonic" title="Link to this definition"></a></dt>
+<dd><p>Generate a contour plot of the mixed-monotonic form of expected shortage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p1</strong> (<em>float</em>) – True probability of success input as limit of integration.</p></li>
+<li><p><strong>p2</strong> (<em>float</em>) – True probability of success input as paremter of CDF in integrand.</p></li>
+<li><p><strong>randomized</strong> (<em>bool</em><em>, </em><em>default True</em>) – If False then use Clopper-Pearson CI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Contour plot showing expected shortage for each parameter combination.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.plotting.plot_expected_width_mixed_monotonic">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_expected_width_mixed_monotonic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.plotting.plot_expected_width_mixed_monotonic" title="Link to this definition"></a></dt>
+<dd><p>Generate a contour plot of the mixed-monotonic form of expected width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p1</strong> (<em>float</em>) – True probability of success input as limit of integration.</p></li>
+<li><p><strong>p2</strong> (<em>float</em>) – True probability of success input as paremter of CDF in integrand.</p></li>
+<li><p><strong>randomized</strong> (<em>bool</em><em>, </em><em>default True</em>) – If False then use Clopper-Pearson CI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Contour plot showing expected width for each parameter combination.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.plotting.plot_shortage_curve">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_shortage_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">21</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.plotting.plot_shortage_curve" title="Link to this definition"></a></dt>
+<dd><p>Plot expected shortage as a function of true prob of success p.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>num_p</strong> (<em>int</em>) – Number of values of p to compute shortage for.</p></li>
+<li><p><strong>randomized</strong> (<em>bool</em><em>, </em><em>default True</em>) – If False then use Clopper-Pearson CI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plot of curve which visualizes expected shortage as a function of true prob of success p.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.plotting.plot_width_curve">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_width_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">21</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.plotting.plot_width_curve" title="Link to this definition"></a></dt>
+<dd><p>Plot expected width as a function of true prob of success p.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>num_p</strong> (<em>int</em>) – Number of values of p to compute width for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Plot of curve which visualizes expected width as a function of true prob of success p.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>plot</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-binomial_cis.volume">
+<span id="binomial-cis-volume-module"></span><h2>binomial_cis.volume module<a class="headerlink" href="#module-binomial_cis.volume" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.expected_excess">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">expected_excess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accept_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.expected_excess" title="Link to this definition"></a></dt>
+<dd><p>Computes the expected excess of an upper confidence bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accept_prob</strong> (<em>function</em>) – Function that takes in p_0 and outputs acceptance prob for lb.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – True probability of success.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exp_excess</strong> – The expected excess of the CI.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.expected_shortage">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">expected_shortage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accept_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.expected_shortage" title="Link to this definition"></a></dt>
+<dd><p>Computes the expected shortage of a lower confidence bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accept_prob</strong> (<em>function</em>) – Function that takes in p_0 and outputs acceptance prob for lb.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – True probability of success.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exp_shortage</strong> – The expected shortage of the CI.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.expected_shortage_cp">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">expected_shortage_cp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.expected_shortage_cp" title="Link to this definition"></a></dt>
+<dd><p>Computes the expected shortage of a Clopper-Pearson lower confidence bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – True probability of success.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exp_shortage</strong> – The expected shortage of the CI.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.expected_shortage_mixed_monotonic">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">expected_shortage_mixed_monotonic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accept_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.expected_shortage_mixed_monotonic" title="Link to this definition"></a></dt>
+<dd><p>Implements the mixed-monotonic form of expected shortage for the lower bound CI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accept_prob</strong> (<em>function</em>) – Function that takes in p_0 and outputs acceptance prob for lb.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p1</strong> (<em>float</em>) – True probability of success input as limit of integration.</p></li>
+<li><p><strong>p2</strong> (<em>float</em>) – True probability of success input as paremter of CDF in integrand.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exp_shortage_mm</strong> – The expected shortage of the CI.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.expected_shortage_mixed_monotonic_cp">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">expected_shortage_mixed_monotonic_cp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.expected_shortage_mixed_monotonic_cp" title="Link to this definition"></a></dt>
+<dd><p>Computes the expected shortage of the lower bound CI</p>
+<p>Inputs
+accept_prob: function that takes in p_0 and outputs acceptance prob for lb
+alpha: miscoverage rate
+n: number of samples
+p: true probability of success</p>
+<p>Returns
+exp_shortage: the expected shortage of the CI</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.expected_width">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">expected_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accept_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.expected_width" title="Link to this definition"></a></dt>
+<dd><p>Computes the expected width of a 2-sided CI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accept_prob</strong> (<em>function</em>) – Function that takes in p_0 and outputs acceptance prob for lb.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p</strong> (<em>float</em>) – True probability of success.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exp_width</strong> – The expected width of the CI.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.expected_width_mixed_monotonic">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">expected_width_mixed_monotonic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accept_prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.expected_width_mixed_monotonic" title="Link to this definition"></a></dt>
+<dd><p>Implements the mixed-monotonic form of expected width for the 2-sided CI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accept_prob</strong> (<em>function</em>) – Function that takes in p_0 and outputs acceptance prob for lb.</p></li>
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+<li><p><strong>p1</strong> (<em>float</em>) – True probability of success input for CDF at t_u.</p></li>
+<li><p><strong>p2</strong> (<em>float</em>) – True probability of success input for CDF at t_l.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>exp_width_mm</strong> – The expected width of the CI.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.max_expected_excess">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">max_expected_excess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.max_expected_excess" title="Link to this definition"></a></dt>
+<dd><p>Computes maximum expected excess (MEE) for the upper bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ub</strong> (<em>float</em>) – An upper bound on max expected excess.</p></li>
+<li><p><strong>lb</strong> (<em>float</em>) – A lower bound on max expected excess.</p></li>
+<li><p><strong>p_lb</strong> (<em>float</em>) – The parameter that achieves lb.</p></li>
+<li><p><strong>num_iters</strong> (<em>int</em>) – Number of iterations taken for the solve.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.max_expected_shortage">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">max_expected_shortage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randomized</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.max_expected_shortage" title="Link to this definition"></a></dt>
+<dd><p>Computes maximum expected shortage (MES) for the lower bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ub</strong> (<em>float</em>) – An upper bound on max expected shortage.</p></li>
+<li><p><strong>lb</strong> (<em>float</em>) – A lower bound on max expected shortage.</p></li>
+<li><p><strong>p_lb</strong> (<em>float</em>) – The parameter that achieves lb.</p></li>
+<li><p><strong>num_iters</strong> (<em>int</em>) – Number of iterations taken for the solve.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="binomial_cis.volume.max_expected_width">
+<span class="sig-prename descclassname"><span class="pre">binomial_cis.volume.</span></span><span class="sig-name descname"><span class="pre">max_expected_width</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binomial_cis.volume.max_expected_width" title="Link to this definition"></a></dt>
+<dd><p>Computes maximum expected width (MEW) for the 2-sided bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<em>float</em>) – Miscoverage rate, P(p in CI) = 1-alpha.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of trials (samples).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ub</strong> (<em>float</em>) – An upper bound on max expected width.</p></li>
+<li><p><strong>lb</strong> (<em>float</em>) – A lower bound on max expected width.</p></li>
+<li><p><strong>p_lb</strong> (<em>float</em>) – The parameter that achieves lb.</p></li>
+<li><p><strong>num_iters</strong> (<em>int</em>) – Number of iterations taken for the solve.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-binomial_cis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-binomial_cis" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Joe Vincent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

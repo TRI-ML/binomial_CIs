@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Background &mdash; binomial_cis 0.0.11 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0c446633"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Notebooks" href="notebooks.html" />
+    <link rel="prev" title="binomial_cis" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            binomial_cis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-binomial-confidence-interval">What is a binomial confidence interval?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-does-this-package-exist">Why does this package exist?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-exactly-does-this-package-do">What exactly does this package do?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lower-bounds">Lower Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upper-bounds">Upper Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simultaneous-lower-and-upper-bounds">Simultaneous Lower and Upper Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relevant-literature">Relevant Literature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="potential_pitfalls.html">Potential Pitfalls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community_guidelines.html">Community Guidelines</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">binomial_cis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Background</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_include/background.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="background">
+<h1>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h1>
+<section id="what-is-a-binomial-confidence-interval">
+<h2>What is a binomial confidence interval?<a class="headerlink" href="#what-is-a-binomial-confidence-interval" title="Link to this heading"></a></h2>
+<p>The binomial distribution represents the likelihood of observing <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> trials where the probability of success for each trial is <span class="math notranslate nohighlight">\(p\)</span>.
+One often does not know the true value of <span class="math notranslate nohighlight">\(p\)</span> and wishes to estimate this value.
+After observing <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> trials with unknown probability of success <span class="math notranslate nohighlight">\(p\)</span>, a confidence interval (CI) is constructed in such a way that it contains the true value of <span class="math notranslate nohighlight">\(p\)</span> with some high probability.</p>
+<p>In constructing confidence intervals one has to tradeoff between three quantities:</p>
+<ol class="arabic simple">
+<li><p>Confidence: The probability that the CI contains the true parameter. Often written as <span class="math notranslate nohighlight">\(1-\alpha\)</span> where <span class="math notranslate nohighlight">\(\alpha\)</span> is small.</p></li>
+<li><p>Volume: The length of the CI. If the CI is constructed as a lower bound on <span class="math notranslate nohighlight">\(p\)</span> (i.e. <span class="math notranslate nohighlight">\([\underline{p}, 1]\)</span>), then we care about the length of the CI which is below <span class="math notranslate nohighlight">\(p\)</span>. This is known as the <cite>shortage</cite>.</p></li>
+<li><p>Number of samples: In general, with more samples one can construct CIs with higher confidence and smaller volume.</p></li>
+</ol>
+</section>
+<section id="why-does-this-package-exist">
+<h2>Why does this package exist?<a class="headerlink" href="#why-does-this-package-exist" title="Link to this heading"></a></h2>
+<p>Existing implementations of binomial CIs do not optimally control the tradeoffs between confidence, volume, and number of samples.
+In practice, this means that if a user specifies <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(n\)</span>, existing implementations return CIs with higher/lower confidence than desired and/or with higher volume than necessary.
+CIs which optimally trade-off between these quantities have the property of being <cite>uniformly most accurate</cite> (UMA) or   <cite>uniformly most accurate unbiased</cite> (UMAU).
+Methods for constructing UMA and UMAU binomial confidence intervals has existed since the mid-20th century, but until now have not been implemented in an open-source software package.
+We implement UMA and UMAU binomial confidence intervals using methods from</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://search.library.berkeley.edu/permalink/01UCS_BER/s4lks2/cdi_proquest_journals_301822201">On the treatment of discontinuous random variables</a> by Eudey,</p></li>
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-3-030-70578-7">Testing Statistical Hypotheses</a> by Lehmann and Romano,</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/2333308">Table of Neyman-shortest unbiased confidence intervals for the binomial parameter</a> by Blyth and Hutchinson.</p></li>
+</ul>
+<p>Existing software implementations for binomial CIs include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.statsmodels.org/devel/generated/statsmodels.stats.proportion.proportion_confint.html">statsmodels.stats.proportion.proportion_confint</a> (Python)</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats._result_classes.BinomTestResult.proportion_ci.html">scipy.stats._result_classes.BinomTestResult.proportion_ci</a> (Python)</p></li>
+<li><p><a class="reference external" href="https://docs.astropy.org/en/stable/api/astropy.stats.binom_conf_interval.html">astropy.stats.binom_conf_interval</a> (Python)</p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html">scipy.stats.binom</a> (Python)</p></li>
+<li><p><a class="reference external" href="https://github.com/KazKobara/ebcic">EBCIC</a> (Python)</p></li>
+<li><p><a class="reference external" href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html">binom.test</a> (R)</p></li>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/binom/binom.pdf">binom.confint</a> (R)</p></li>
+<li><p><a class="reference external" href="https://search.r-project.org/CRAN/refmans/DescTools/html/BinomCI.html">BinomCI</a> (R)</p></li>
+<li><p><a class="reference external" href="https://juliastats.org/HypothesisTests.jl/stable/methods/#Confidence-interval">HypothesisTests.jl</a> (Julia)</p></li>
+<li><p><a class="reference external" href="https://github.com/mrxiaohe/RobustStats.jl/tree/67cec0ea9ac9c4c8a3fe8f2a4e93cadbe68b1d77">RobustStats.jl</a> (Julia)</p></li>
+<li><p><a class="reference external" href="https://docs.juliahub.com/ClinicalTrialUtilities/lEJUs/0.3.1/">ClinicalTrialUtilities.jl</a> (Julia)</p></li>
+<li><p><a class="reference external" href="https://www.mathworks.com/help/stats/binofit.html">binofit</a> (Matlab)</p></li>
+</ul>
+<p>The methods these packages implement include:</p>
+<ul class="simple">
+<li><p>Wald/Normal [1]</p></li>
+<li><p>Agresti-Coull [1]</p></li>
+<li><p>Clopper-Pearson (*) [1]</p></li>
+<li><p>Wilson [1]</p></li>
+<li><p>Modified Wilson [1]</p></li>
+<li><p>Wilson with continuity correction (*) [1]</p></li>
+<li><p>Jeffreys [1]</p></li>
+<li><p>Bayesian uniform prior</p></li>
+<li><p>Inverting the binomial test (*) [3]</p></li>
+<li><p>Arcsine [1]</p></li>
+<li><p>Logit [1]</p></li>
+<li><p>Probit [8]</p></li>
+<li><p>Complementary log [8]</p></li>
+<li><p>Likelihood (Profile) [1]</p></li>
+<li><p>Witting (*) [4]</p></li>
+<li><p>Pratt [5]</p></li>
+<li><p>Mid-p [7]</p></li>
+<li><p>Blaker (*) [6]</p></li>
+<li><p>Second-order corrected [2]</p></li>
+</ul>
+<p>The reference of each method points to a survey paper (if possible) rather than the original derivation of the method.</p>
+<p>Only the methods marked with (*) are guaranteed to provide at least as much confidence as desired.
+However, none of these methods provide exactly the confidence level desired (Witting might, but the listed reference is not freely available online and is only published in German).</p>
+<p>It is also worth noting the <a class="reference external" href="http://CRAN.R-project.org/package=ump">ump</a> R package.
+This package implements UMP and UMPU hypothesis tests for the binomial distribution.
+Such tests could be leveraged to construct UMA and UMAU confidence intervals, but this doesn’t appear to be implemented based on the documented functions.
+In addition, the authors of this package note that their implemetation has issues with numerical stability.</p>
+<p>Existing software implementations for computing binomial CIs with exact confidence levels are then either non-existent or unsatisfactory.
+Unsurprisingly then, there is also no open-source implementation for computing the expected shortage (or expected excess or expected width) of binomial CIs, and no implementation for computing the worst-case values of these quantities.
+This package exists to fill this gap.</p>
+</section>
+<section id="what-exactly-does-this-package-do">
+<h2>What exactly does this package do?<a class="headerlink" href="#what-exactly-does-this-package-do" title="Link to this heading"></a></h2>
+<p>This package constructs optimal confidence intervals for the probability of success parameter of a binomial distribution.</p>
+<section id="lower-bounds">
+<h3>Lower Bounds<a class="headerlink" href="#lower-bounds" title="Link to this heading"></a></h3>
+<p>Given user specified miscoverage rate (<span class="math notranslate nohighlight">\(\alpha\)</span>) and maximum expected shortage (<span class="math notranslate nohighlight">\(\text{MES}\)</span>), return a lower bound on <span class="math notranslate nohighlight">\(p\)</span> that satisfies the following requirements:</p>
+<ol class="arabic simple">
+<li><p>achieves exact desired coverage: <span class="math notranslate nohighlight">\(\mathbb{P}[\underline{p} \le p] = 1-\alpha\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\([\underline{p}, 1]\)</span> is uniformly most accurate,</p></li>
+<li><p>achieves exact desired maximum expected shortage: <span class="math notranslate nohighlight">\(\max_p \ \mathbb{E}_p[\max (p - \underline{p}, 0)] = \text{MES}\)</span>,</p></li>
+<li><p>uses the minimum number of samples <span class="math notranslate nohighlight">\(n\)</span> to achieve requirements 1,2,3.</p></li>
+</ol>
+</section>
+<section id="upper-bounds">
+<h3>Upper Bounds<a class="headerlink" href="#upper-bounds" title="Link to this heading"></a></h3>
+<p>Given user specified miscoverage rate (<span class="math notranslate nohighlight">\(\alpha\)</span>) and maximum expected excess (<span class="math notranslate nohighlight">\(\text{MEE}\)</span>), return an upper bound on <span class="math notranslate nohighlight">\(p\)</span> that satisfies the following requirements:</p>
+<ol class="arabic simple">
+<li><p>achieves exact desired coverage: <span class="math notranslate nohighlight">\(\mathbb{P}[p \le \overline{p}] = 1-\alpha\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\([0, \overline{p}]\)</span> is uniformly most accurate,</p></li>
+<li><p>achieves exact desired maximum expected excess: <span class="math notranslate nohighlight">\(\max_p \ \mathbb{E}_p[\max (\overline{p} - p, 0)] = \text{MEE}\)</span>,</p></li>
+<li><p>uses the minimum number of samples <span class="math notranslate nohighlight">\(n\)</span> to achieve requirements 1,2,3.</p></li>
+</ol>
+</section>
+<section id="simultaneous-lower-and-upper-bounds">
+<h3>Simultaneous Lower and Upper Bounds<a class="headerlink" href="#simultaneous-lower-and-upper-bounds" title="Link to this heading"></a></h3>
+<p>Given the user specified miscoverage rate (<span class="math notranslate nohighlight">\(\alpha\)</span>) and maximum expected width (<span class="math notranslate nohighlight">\(\text{MEW}\)</span>), return simultaneous lower and upper bounds on <span class="math notranslate nohighlight">\(p\)</span> that satisfy the following requirements:</p>
+<ol class="arabic simple">
+<li><p>achieves exact desired coverage: <span class="math notranslate nohighlight">\(\mathbb{P}[\underline{p} \le p \le \overline{p}] = 1-\alpha\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\([\underline{p}, \overline{p}]\)</span> is uniformly most accurate unbiased,</p></li>
+<li><p>achieves exact desired maximum expected width: <span class="math notranslate nohighlight">\(\max_p \ \mathbb{E}_p[\overline{p} - \underline{p}] = \text{MEW}\)</span>,</p></li>
+<li><p>uses the minimum number of samples <span class="math notranslate nohighlight">\(n\)</span> to achieve requirements 1,2,3.</p></li>
+</ol>
+</section>
+<section id="relevant-literature">
+<h3>Relevant Literature<a class="headerlink" href="#relevant-literature" title="Link to this heading"></a></h3>
+<p>For more information on the mathematics behind these confidence intervals see our affiliated paper <a class="reference external" href="https://arxiv.org/abs/2405.05439">How Generalizable Is My Behavior Cloning Policy? A Statistical Approach to Trustworthy Performance Evaluation</a></p>
+<p>Below are some of the resources that we found most useful for understanding binomial confidence intervals.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-3-030-70578-7">Testing Statistical Hypotheses</a> by Lehmann and Romano</p></li>
+<li><p><a class="reference external" href="https://search.library.berkeley.edu/permalink/01UCS_BER/s4lks2/cdi_proquest_journals_301822201">On the treatment of discontinuous random variables</a> by Eudey</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/2333308">Table of Neyman-shortest unbiased confidence intervals for the binomial parameter</a> by Blyth and Hutchinson</p></li>
+<li><p><a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1961.10480644">Length of Confidence Intervals</a> by Pratt</p></li>
+<li><p><a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1962.10500547">More on length of confidence intervals</a> by Madansky</p></li>
+<li><p><a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1983.10477938">Binomial confidence intervals</a> by Blyth and Still</p></li>
+<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0378375805002430">Smallest confidence intervals for one binomial proportion</a> by Wang</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/20061193">Fuzzy and randomized confidence intervals and p-values</a> by Geyer and Meeden</p></li>
+<li><p><a class="reference external" href="https://www.stat.purdue.edu/docs/research/tech-reports/1988/tr88-09.pdf">Nonoptimality of Randomized Confidence Sets</a> by Casella and Robert</p></li>
+</ul>
+</section>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://www.jstor.org/stable/2676784">Interval Estimation for a Binomial Proportion</a> by Brown, Cai, and DasGupta</p></li>
+<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0378375804000679">One-sided confidence intervals in discrete distributions</a> by Cai</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/2333026">Some Remarks on Confidence or Fiducial Limits</a> by Sterne</p></li>
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-3-322-90150-7">Mathematische Statistik I.</a> by Witting</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/2287116">Binomial Confidence Intervals</a> by Blyth and Still</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/3315916">Confidence Curves and Improved Exact Confidence Intervals for Discrete Distributions</a> by Blaker</p></li>
+<li><p><a class="reference external" href="https://www.semanticscholar.org/paper/Comment%3A-Randomized-Confidence-Intervals-and-the-Agresti-Gottard/596fd2a98486f65599b56ac81aef32e5c1a0d586">Comment: Randomized Confidence Intervals and the Mid-P Approach</a> by Agresti and Gottard</p></li>
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/binom/binom.pdf">binom</a> by Sundar Dorai-Raj</p></li>
+<li><p><a class="reference external" href="https://www.jstor.org/stable/20061193">Fuzzy and randomized confidence intervals and p-values</a> by Geyer and Meeden.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="binomial_cis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="notebooks.html" class="btn btn-neutral float-right" title="Notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Joe Vincent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

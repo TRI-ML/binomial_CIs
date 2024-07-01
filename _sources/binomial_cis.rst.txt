@@ -1,0 +1,53 @@
+binomial\_cis package
+=====================
+
+Submodules
+----------
+
+binomial\_cis.binomial\_helper module
+-------------------------------------
+
+.. automodule:: binomial_cis.binomial_helper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+binomial\_cis.conf\_intervals module
+------------------------------------
+
+.. automodule:: binomial_cis.conf_intervals
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+binomial\_cis.mixed\_monotonic module
+-------------------------------------
+
+.. automodule:: binomial_cis.mixed_monotonic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+binomial\_cis.plotting module
+-----------------------------
+
+.. automodule:: binomial_cis.plotting
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+binomial\_cis.volume module
+---------------------------
+
+.. automodule:: binomial_cis.volume
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: binomial_cis
+   :members:
+   :undoc-members:
+   :show-inheritance:

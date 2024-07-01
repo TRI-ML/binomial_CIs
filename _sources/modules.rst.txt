@@ -1,0 +1,8 @@
+binomial_cis
+============
+
+.. toctree::
+   :maxdepth: 4
+
+   binomial_cis
+   setup
